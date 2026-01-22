@@ -1,0 +1,16 @@
+name: Update Blog Posts
+
+on:
+  push:
+  schedule:
+    - cron: '0 0 * * *'  # 매일 밤 12시(UTC)에 자동 실행
+
+jobs:
+  update-readme-with-blog:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: gautamkrishnar/blog-post-workflow@master
+        with:
+          comment_tag_name: "NAVER-BLOG"
+          feed_list: "https://rss.blog.naver.com/heyliving2025"
