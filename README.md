@@ -6,3 +6,5 @@
 ---
 
 ### 📝 최신 블로그 포스팅
+<!-- NAVER-BLOG:START -->
+<!-- NAVER-BLOG:END -->
