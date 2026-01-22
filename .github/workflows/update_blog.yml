@@ -14,3 +14,4 @@ jobs:
         with:
           comment_tag_name: "NAVER-BLOG"
           feed_list: "https://rss.blog.naver.com/heyliving2025"
+          max_post_count: "50"
