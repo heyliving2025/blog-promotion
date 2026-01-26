@@ -3,3 +3,6 @@ description: "네이버 블로그 heyliving2025의 공식 아카이브. 셀프 �
 theme: jekyll-theme-minimal
 url: "https://heyliving2025.github.io"
 baseurl: "/blog-promotion"
+
+plugins:
+  - jekyll-sitemap
