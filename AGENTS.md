@@ -45,9 +45,11 @@ The automation is implemented directly within the GitHub Actions workflow to ens
 ### 3. Workflow Logic (`update_blog.yml`)
 * **Schedule:** Run daily at 00:00 UTC and on manual dispatch.
 * **Environment:** Ubuntu Latest.
+* **Core Principle:** Always perform `git pull --rebase` before committing to prevent conflicts.
 * **Steps:**
     1.  **Checkout Code:** Access the repository.
     2.  **Fetch Blog Posts:** Use `blog-post-workflow` to update `README.md` with raw data.
-    3.  **Clean Content & Push:**
+    3.  **Clean Content & Sync:**
         - Execute `sed` commands for text cleaning and link transformation.
-        - Commit and Push changes using the environment's authenticated user (without explicit `git config`).
+        - **Sync:** Run `git pull --rebase` to ensure the local state matches the remote.
+        - **Push:** Commit and Push changes using the environment's authenticated user (without explicit `git config`).
