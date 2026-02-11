@@ -22,18 +22,25 @@ jobs:
           max_post_count: "50"
           disable_commit: "true" 
 
-      # 2단계: 깨진 글자(&lpar;, &rpar;)를 찾아서 괄호로 바꾸고 저장하기
-      - name: Fix Encoding and Push
+      # 2단계: 글자 정제, 쿼리 제거 및 모바일 링크 변환
+      - name: Clean Content and Push
         run: |
-          # sed 명령어로 글자 치환 (청소 작업)
+          # 텍스트 정제 (HTML Entity -> 일반 문자)
           sed -i 's/&lpar;/(/g' README.md
           sed -i 's/&rpar;/)/g' README.md
           sed -i 's/&quot;/"/g' README.md
           sed -i "s/&apos;/'/g" README.md
+          sed -i 's/&lt;/</g' README.md
+          sed -i 's/&gt;/>/g' README.md
+
+          # 쿼리 파라미터 제거 및 모바일 링크 변환
+          # 1. URL에서 ? 이후의 쿼리 파라미터 제거
+          sed -i 's/\(https:\/\/blog.naver.com\/[a-zA-Z0-9_-]\+\/[0-9]\+\)?[^)]*/\1/g' README.md
+          
+          # 2. PC 링크를 모바일 링크로 변환
+          sed -i 's/https:\/\/blog.naver.com/https:\/\/m.blog.naver.com/g' README.md
           
           # 변경사항 저장 및 배포
-          git config --global user.name 'github-actions[bot]'
-          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
           git add README.md
-          git commit -m "Update blog posts with fixed encoding" || echo "No changes to commit"
+          git commit -m "Update blog posts (mobile links & clean text)" || echo "No changes to commit"
           git push
