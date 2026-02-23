@@ -14,33 +14,39 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       
-      # 1단계: 블로그 글 가져오기 (단, 저장은 아직 하지 마! disable_commit 옵션)
+      # 1단계: 블로그 글 가져오기
       - uses: gautamkrishnar/blog-post-workflow@master
         with:
           comment_tag_name: "NAVER-BLOG"
           feed_list: "https://rss.blog.naver.com/heyliving2025"
           max_post_count: "50"
           disable_commit: "true" 
+          readme_path: "index.md"
 
-      # 2단계: 글자 정제, 쿼리 제거 및 모바일 링크 변환
+      # 2단계: 글자 정제, 쿼리 제거, 모바일 링크 변환 및 날짜 갱신
       - name: Clean Content and Push
         run: |
+          # 현재 시간 가져오기 (KST 기준)
+          CURRENT_DATE=$(date -u -d "+9 hours" +"%Y-%m-%d %H:%M:%S +0900")
+          
           # 텍스트 정제 (HTML Entity -> 일반 문자)
-          sed -i 's/&lpar;/(/g' README.md
-          sed -i 's/&rpar;/)/g' README.md
-          sed -i 's/&quot;/"/g' README.md
-          sed -i "s/&apos;/'/g" README.md
-          sed -i 's/&lt;/</g' README.md
-          sed -i 's/&gt;/>/g' README.md
+          sed -i 's/&lpar;/(/g' index.md
+          sed -i 's/&rpar;/)/g' index.md
+          sed -i 's/&quot;/"/g' index.md
+          sed -i "s/&apos;/'/g" index.md
+          sed -i 's/&lt;/</g' index.md
+          sed -i 's/&gt;/>/g' index.md
 
           # 쿼리 파라미터 제거 및 모바일 링크 변환
-          # 1. URL에서 ? 이후의 쿼리 파라미터 제거
-          sed -i 's/\(https:\/\/blog.naver.com\/[a-zA-Z0-9_-]\+\/[0-9]\+\)?[^)]*/\1/g' README.md
+          sed -i 's/\(https:\/\/blog.naver.com\/[a-zA-Z0-9_-]\+\/[0-9]\+\)?[^)]*/\1/g' index.md
+          sed -i 's/https:\/\/blog.naver.com/https:\/\/m.blog.naver.com/g' index.md
           
-          # 2. PC 링크를 모바일 링크로 변환
-          sed -i 's/https:\/\/blog.naver.com/https:\/\/m.blog.naver.com/g' README.md
+          # last_modified_at 날짜 갱신
+          sed -i "s/last_modified_at: .*/last_modified_at: $CURRENT_DATE/" index.md
           
           # 변경사항 저장 및 배포
-          git add README.md
-          git commit -m "Update blog posts (mobile links & clean text)" || echo "No changes to commit"
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add index.md
+          git commit -m "Update blog posts & last_modified_at ($CURRENT_DATE)" || echo "No changes to commit"
           git push
