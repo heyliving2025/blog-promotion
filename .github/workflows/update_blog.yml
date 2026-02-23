@@ -31,12 +31,12 @@ jobs:
           # 현재 시간 가져오기 (KST 기준)
           CURRENT_DATE=$(date -u -d "+9 hours" +"%Y-%m-%d %H:%M:%S +0900")
           
-          # 1. 모든 HTML 태그 제거 (이미지 포함)
-          sed -i 's/<[^>]*>//g' index.md
+          # 1. 모든 HTML 태그 제거 (이미지 포함, 단 <!-- --> 주석은 제외)
+          sed -i 's/<[^!][^>]*>//g' index.md
 
           # 2. 텍스트 정제 (HTML Entity -> 일반 문자)
           sed -i 's/&lpar;/(/g' index.md
-          sed -i 's/&rpar;/)/g' index.md
+          sed -i 's/&rpar;)/g' index.md
           sed -i 's/&quot;/"/g' index.md
           sed -i "s/&apos;/'/g" index.md
           sed -i 's/&lt;/</g' index.md

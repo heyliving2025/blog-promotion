@@ -27,7 +27,7 @@ last_modified_at: 2026-02-23 21:21:14 +0900
 ### 📝 최신 블로그 포스팅 큐레이션
 네이버 블로그의 최신 글들을 구글에서도 편리하게 탐색하실 수 있도록 모바일 최적화 링크로 제공합니다.
 
-
+<!-- NAVER-BLOG:START -->
 - **[[공모주] 레이저 솔류션 액스비스(AXBIS) 청약 시작! 수요예측 대박, 청약 전 필수 체크리스트](https://m.blog.naver.com/heyliving2025/224192884022)**  
   액스비스 공모주 청약 한동안 잠잠했던 공모주 시장이 다시 활기를 띠고 있는데요. 오늘은 현대차와 LG생산라인에 핵심 장비를 공급하는 &#39;액스비스&#39;의 청약 첫날입니다. 기관 수요예측 결과가 워낙 좋아서 관심 가지시는 분들이 많을 텐데, 기업정보와 청약 전 필수체크리스트, 청약일지를 남겨보도록 할게요. 액스비스(AXBIS) 기업 청약 정보 (요약) ◆ 액스비스 청약정보 및 일지 청약일 : 02. 23(월) ~ 02. 24(화) 확정 공모가 : 11,500원 (희망 밴드 최상단) 주관사 : 미래에셋증권 (단독) 환불일 : 2026. 02. 26(목) 상장 예정일 : 2026. 03. 09(월) 기관 경쟁률: 1,124.21 : 1 의무보유확약 : 78.1% (매우 높은 수준!) ◆ 청약방....... <img src="https://blogthumb.pstatic.net/MjAyNjAyMjNfMTIx/MDAxNzcxODMzMDA2Mzcw.J9Vm5QUXEEDTMj3AvLlg3ZLDUl-MqKTesdLS9Z4hjNEg.hhxVD4GTTb1xR_jgYUGKl1f3cE_ZPyIJ2FZwwyfr_Log.PNG/heyliving_%281%29.png?type=s3" />
 - **[『반도체』 반도체 주가가 급등하는 진짜 이유를 찾아서(feat : 이효석아카데미)](https://m.blog.naver.com/heyliving2025/224192783117)**  
@@ -88,3 +88,4 @@ last_modified_at: 2026-02-23 21:21:14 +0900
   안녕하세요. 헤이경제입니다. 뉴스를 보니 강훈식 비서실장이 캐나다로 K원팀을 꾸려 떠났다고 합니다. 캐나다로 떠난 이유를 살펴보니 올해 상반기 가장 큰 이벤트 중 하나인 &#39;60조원 규모 캐나다 순찰 잠수함 프로젝트가(CPSP)가 수주 카운드다운에 들어갔다고 합니다. 그래서 오늘은 캐나다 잠수함 수주 프로젝트에 대해 공부해 보았습니다. 왜 &#39;캐나다 잠수함&#39; 인가?(사업규모 60~100조) 캐나다는 노후화된 잠수함을 교체하기 위해 총12척 신규도입을 추진 중입니다. 건조 비용뿐만 아니라 향후 30년 이상의 유지보수(MRO) 비용까지 합치면 최대 100조원에 육박하는 초대형 프로젝트 입니다. 현재 대한민국(팀 코리아)과 독일....... <img src="https://blogthumb.pstatic.net/MjAyNjAxMjhfMTUz/MDAxNzY5NTk5Nzc0NzQw.gmLQ-TCkSMzwYyHT-eMnkslFioCynkMBlsl7gsF0k6Qg.eXUwYxuONtnmOMyS9VtPl8tuugeTKslVnFwn52YbzDog.PNG/%BE%B5%BC%F6%B7%CF_%B5%B9%B7%C1%B9%DE%B4%C2.png?type=s3" />
 - **[눈 내린 창덕궁 풍경](https://m.blog.naver.com/heyliving2025/224163238697)**  
   지난주 금요일 저녁 서울에 제법 많은 눈이 내렸다. 토요일 아침에 일어나 짝꿍과 눈 구경하러 어디가면 좋을까 고민하다 평소 좋아하는 장소인 &#39;궁으로 가볼까?&#39; 해서 바로 나섰다. 창덕궁 비원은 여러번 방문해봤지만 &#39;눈내린 후원&#39;은 본적이 없어서 &#39;창덕궁&#39;으로 향했다. 원래 창덕궁 후원은 한국인과 외국인 예약으로 나눠져 있어 한국인은 인기가 많아 예약이 쉽지 않다. 추운 날씨덕분?인지 운좋게 예약했다ㅎㅎ 후원입장까지 1시간 정도 여유가 있어 창덕궁을 둘러봤다. 아직 사람의 발길이 닿지 않은 듯한 창덕궁은 고즈넉하니 너무나 좋았다. 눈이 소담하게 쌓인 기와도 좋았고 눈덮힌 소나무도 참 멋있....... <img src="https://blogthumb.pstatic.net/MjAyNjAxMjhfMTk1/MDAxNzY5NjAyNDQ3NTA2.QwQ4hse4uH2reu8SeYLIdPTBxa9qmThPThobf3a3qcQg.wLcfrH-2VgmEQxpiaI8DOT100ZS_4qW39btA6mYPkcMg.JPEG/KakaoTalk_20260128_210641567_11.jpg?type=s3" />
+<!-- NAVER-BLOG:END -->
