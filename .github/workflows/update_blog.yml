@@ -31,22 +31,26 @@ jobs:
           # 현재 시간 가져오기 (KST 기준)
           CURRENT_DATE=$(date -u -d "+9 hours" +"%Y-%m-%d %H:%M:%S +0900")
           
-          # 1. 모든 HTML 태그 제거 (이미지 포함, 단 <!-- --> 주석은 제외)
-          sed -i 's/<[^!][^>]*>//g' index.md
-          
-          # 2. 명시적으로 이미지 태그 제거 (엔티티 형태 포함)
+          # 1. 인코딩된 이미지 태그 (&lt;img ... &gt;) 완전 제거
+          # sed의 탐욕적 매칭을 고려하여 &lt;img 로 시작해서 가장 가까운 &gt; 까지 제거하는 것이 이상적이나
+          # 표준 sed에서는 어려우므로, 블로그 설명 구조에 맞춰 최대한 정밀하게 매칭
           sed -i 's/&lt;img[^&]*&gt;//g' index.md
+          sed -i 's/&lt;img.*&gt;//g' index.md
+
+          # 2. 일반 HTML 태그 제거 (이미지 포함, 단 <!-- --> 주석은 제외)
+          sed -i 's/<[^!][^>]*>//g' index.md
 
           # 3. 텍스트 정제 (HTML Entity -> 일반 문자)
           sed -i 's/&lpar;/(/g' index.md
-          sed -i 's/&rpar;)/g' index.md
+          sed -i 's/&rpar;/)/g' index.md
           sed -i 's/&quot;/"/g' index.md
           sed -i "s/&apos;/'/g" index.md
           sed -i 's/&lt;/</g' index.md
           sed -i 's/&gt;/>/g' index.md
           sed -i 's/&amp;/&/g' index.md
 
-          # 5. 쿼리 파라미터 제거 및 모바일 링크 변환
+          # 4. 쿼리 파라미터 제거 (?fromRss=true 등) 및 모바일 링크 변환
+          # 링크 끝의 괄호 ) 또는 공백 등을 고려하여 매칭
           sed -i 's/\(https:\/\/blog.naver.com\/[a-zA-Z0-9_-]\+\/[0-9]\+\)?[^)]*/\1/g' index.md
           sed -i 's/https:\/\/blog.naver.com/https:\/\/m.blog.naver.com/g' index.md
           
@@ -57,5 +61,5 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add index.md
-          git commit -m "Update blog posts & last_modified_at ($CURRENT_DATE)" || echo "No changes to commit"
+          git commit -m "Update blog posts with improved cleaning ($CURRENT_DATE)" || echo "No changes to commit"
           git push
